@@ -1,111 +1,132 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<title>Happy Birthday</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<style type="text/css">
-		@font-face {
-			font-family: digit;
-			src: url('digital-7_mono.ttf') format("truetype");
-		}
-	</style>
-	<link href="css/default.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/garden_dev.js"></script>
-    <script type="text/javascript" src="js/functions_dev.js"></script>
-</head>
+<html>
+	<head>
+		<style type = "text/css" >
+			:root {
+				--color: #ff0000;
+			}
 
-<body>
-	<div id="mainDiv">
-		<div id="content">
-			<div id="code">
-				<span class="comments">/**</span><br />
-				<span class="space"/><span class="comments">* Today, the 6th day of JUNE, is your birthday.</span><br />
-				<span class="space"/><span class="comments">* So I created a page to celebrate this extraordinary day.</span><br />
-				<span class="space"/><span class="comments">* That page will show you a script 'will.sh'.</span><br />
-				<span class="space"/><span class="comments">*/</span><br />
-				birthday@girl ~ $ >> <span class="keyword">cd love && sh </span> will.sh(<span class="string"><strong >"PIYASHA CHAKRABORTY"</strong></span>);<br />
-				<span class="comments">// JUNE-06, when the bell rang, your age increased </span><br />
-				Date currentTime = <span class="keyword">new</span> Date(); <br />
-				SimpleDateFormat formatter = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"2020-06-06 00:00:00"</span>);<br />
-				String dateString = formatter.format(currentTime);<br />
-				if( dateString.equals(<span class="string">"2020-06-06 16:00:00"</span>) ){</br>
-					u.age ++;</br>
-				}</br>
-				<span class="comments">// O! she doth teach the torches to burn bright</span><br />
-				<span class="comments">// It seems she hangs upon the cheek of night</span><br />
-				<span class="comments">// Like a rich jewel in an Ethiop's ear;</span><br />
-				<span class="comments">// Beauty too rich for use, for earth too dear.</span><br />
+			body{
+			  padding: 40vh 0;
+			  background-color: black;
+			}
+			
+			@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
-				<span class="keyword">new</span> Thread (){<br />
-				@Override </br>
-				<span class="comments">// I wish you</span><br />
-				while(true){</br>
-				<span class="comments">// happiness,</span><br />
-				u.happiness ++;</br>
-				<span class="comments">// strength,</span><br />
-				u.strength ++;</br>
-				<span class="comments">// more awesome things,</span><br />
-				u.more_awesome_things ++;</br>
-			    <span class="comments">// and everything you wish can be achieved.</span><br />
-				}.start()</br>
-				<span class="comments">// The last thing I want say, boring and ordinary, is:</span><br />
-				System.out.println(<span class="string">"Happy Birthday !!!"</span>);
-			</div>
-			<div id="loveHeart">
-				<canvas id="garden"></canvas>
-				<div id="words">
-					<div id="messages">
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-						    You defy stars from:
-						<div id="elapseClock"></div>
-					</div>
-					<div id="loveu">
-						"What's in a name? that which we call a rose<br>
-                         By any other name would smell as sweet.”<br/>
-						<div class="signature">- W.Shakespeare</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		var offsetX = $("#loveHeart").width() / 2;
-		var offsetY = $("#loveHeart").height() / 2 - 55;
-		var together = new Date();
-		together.setFullYear(1990,6,06);
-		together.setHours(8);
-		together.setMinutes(0);
-		together.setSeconds(0);
-		together.setMilliseconds(0);
+			
+			p {
+			  margin-top : -250px;
+			  margin-left : 100px;
+			  white-space: wrap;
+			  overflow: hidden;    
+			  font-family: 'Monotype Corsiva', monospace;  
+			  font-size: 28px;
+			  color: rgba(255,255,255,.70);
+			  
+			}
+
+			/* Animation */
+			p {
+			  animation: animated-text 4s linear 1s 1 normal both,
+						 animated-cursor 600ms linear infinite;
+			}
+
+			/* text animation */
+
+			@keyframes animated-text{
+			  from{width: 0;}
+
+			}
+
+			/* cursor animations */
+
+			@keyframes animated-cursor{
+			  from{border-right-color: rgba(255,255,255,.75);}
+			  to{border-right-color: transparent;}
+			}
 		
-		if (!document.createElement('canvas').getContext) {
-			var msg = document.createElement("div");
-			msg.id = "errorMsg";
-			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-			document.body.appendChild(msg);
-			$("#code").css("display", "none")
-			$("#copyright").css("position", "absolute");
-			$("#copyright").css("bottom", "10px");
-		    document.execCommand("stop");
-		} else {
-			setTimeout(function () {
-				startHeartAnimation();
-			}, 5000);
+     		.heart {
+			  animation: heartbeat 1s infinite;
+			  background-color: var(--color);
+			  display: inline-block;
+			  height: 50px;
+			  margin: 0 10px;
+			  position: relative;
+			  top: 0;
+			  transform: rotate(-45deg);
+			  position: absolute; 
+			  left: 45%; top: 45%;
+			  width: 50px;
+			  opacity : 20%;
+			}
 
-			timeElapse(together);
-			setInterval(function () {
-				timeElapse(together);
-			}, 500);
+			.heart:before,
+			.heart:after {
+			  content: "";
+			  background-color: var(--color);
+			  border-radius: 50%;
+			  height: 50px;
+			  position: absolute;
+			  width: 50px;
+			}
 
-			adjustCodePosition();
-			$("#code").typewriter();
-		}
-	</script>
-</body>
+			.heart:before {
+			  top: -25px;
+			  left: 0;
+			}
+
+			.heart:after {
+			  left: 25px;
+			  top: 0;
+			}
+
+			@keyframes heartbeat
+			{
+			  0%
+			  {
+				transform: scale( 1 )
+				  rotate(-45deg);    
+			  }
+			  20%
+			  {
+				transform: scale( 1.25 )
+				  rotate(-45deg);  
+			  }
+			   40%
+			  {
+				transform: scale( 1.5 )
+				  rotate(-45deg);
+			  }
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="heart"></div>
+		<p>
+			<strong>My Love,</strong>
+		
+			<br>
+			Love was never about hugs and kisses,Its about how much you feel and think for that person from inside of your heart.
+			How seriously you want to be together and hold each other in ups and downs in adverse situations. Love is all about 
+			standing in storms in each others arms and dancing in rain. Love is all about doing action for happiness pf your partner.
+			Love is all about of constantly thinking about someone in your heart and mind. Love is all about feeling butterflies in your
+			Stoamch for someone. Love is all about getting goosebumps by feeling someone around you.
+			
+			<br><br>28th June 2020 , Time 3:15 PM. A meeting was arranged by GOD,Facilitated by Parents. This meeting was planned long ago from 
+			ages and that has been commenced successfully as per the destiny. I met a girl,A Girl With White Earring,A Girl In Yellow Top,
+			Blue Denim,Black Bellies and When She Came Her Face Was Wrapped in a white stole. You Know it was like God has wrapped something 
+			beautiful for me since ages and i was waiting. People Interacted with each other but my heart was skipping its beat. 
+			
+			<br><br>I Had A Eye Contact, I felt nervous , My eyes were trying to see her but not to see her at the same time. Heart was pumping fast 
+			and wishing let this flower bhi wrapped like this only. My Body shooked My Heart freezed, I breathed fast inside me and 
+			A sudden goosebump hit me hard.
+			
+			<br><br>It was all new feeling for me. A boy inside me woke up and said you were never like this, Man How can you be nervous ? 
+			She is just a girl only. You know people interaction well, why are you behaving like this. Suddenly Heart Raised The Voice and Said To Mind 
+		    Hey You Overthinker Just Shut Up. This Voice From Heart Was So Commanding That Mind became silent and again heart is in power.
+			Body Smiled From Inside after seeing this battle and so do lips.
+			
+			
+			</p>
+	</body>
 </html>
